@@ -8,10 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 
-import { EventoService } from './_services/evento.service';
-
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/eventos.component';
 import { NavComponent } from './nav/nav.component';
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
@@ -21,7 +18,6 @@ import { ReservaService } from './_services/reserva.service';
 @NgModule({
    declarations: [
       AppComponent,
-      EventosComponent,
       NavComponent,
       DateTimeFormatPipePipe,
       ReservaComponent
@@ -44,7 +40,6 @@ import { ReservaService } from './_services/reserva.service';
       ReactiveFormsModule
    ],
    providers: [
-      EventoService,
       ReservaService
    ],
    bootstrap: [

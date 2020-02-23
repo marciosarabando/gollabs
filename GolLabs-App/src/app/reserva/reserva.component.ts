@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ReservaService } from '../_services/reserva.service';
 import { Reserva } from '../_models/Reserva';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { BsModalService, BsLocaleService } from 'ngx-bootstrap';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { defineLocale, ptBrLocale } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+defineLocale('pt-br', ptBrLocale);
 
 @Component({
   selector: 'app-reserva',
