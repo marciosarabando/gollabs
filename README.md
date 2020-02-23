@@ -19,8 +19,8 @@ GolLabs.API/dotnet run
 
 ### APP:
 ```sh
-GolLas-App/npm i
-GolLas-App/ng serve -o
+GolLabs-App/npm i
+GolLabs-App/ng serve -o
 ```
 
  ## Execução:
