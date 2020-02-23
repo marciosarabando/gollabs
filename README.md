@@ -12,14 +12,14 @@ Esta aplicação possui uma página única (SPA) que exibe a listagem de um cada
 </ul>
 
 ## Instalação:
-### API GolLabs.API
+### API: GolLabs.API
 ```sh
 GolLabs.API/dotnet run
 ```
 
-### APP GolLas-App
+### APP: GolLas-App
 ```sh
-npm i
+GolLas-App/npm i
 GolLas-App/ng serve -o
 ```
 
