@@ -2,7 +2,7 @@
 ## Marcio Sarabando
 
 ## Objetivo: 
-Esta aplicação possui uma página única (SPA) que exibe a listagem de um cadastro de Reservas, exibe os campos: Nome, Data da Partida, Hora da Partida, Origem e Destino. Nela é possível Listar, Filtrar, Incluir, Editar e Remover Reservas.
+Esta aplicação possui uma página única (SPA) que exibe a listagem de um cadastro de Reservas com os campos: Nome, Data da Partida, Hora da Partida, Origem e Destino. Nela é possível Listar, Filtrar, Incluir, Editar e Remover Reservas.
 
 ## Tecnologias utilizadas:
 <ul>
