@@ -3,7 +3,7 @@
 
 Sobre a GolLabs-APP - Minhas Reservas
 
-Objetivo: APP de Avaliação de Candidato
+<b>Objetivo:</b> APP de Avaliação de Candidato
 
 Esta aplicação web possui uma página única que exibe a listagem de um cadastro de Reservas, exibe os campos: Nome, Data da Partida, Hora da Partida, Origem e Destino. Nela é possível Listar, Filtrar, Incluir, Editar e Remover Reservas.
 
