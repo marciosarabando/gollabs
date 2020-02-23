@@ -1,0 +1,137 @@
+<h2>MINHAS RESERVAS</h2>
+<hr>
+<div class="d-flex">
+  <div class="form-inline mr-auto" action="">
+    <div class="form-group mb-2">
+      <label class="mr-2">FILTRAR:</label><input type="text" class="form-control mr-2" placeholder="por nome">
+    </div>
+  </div>
+
+  <div>
+    <button class="btn btn-outline-primary" (click)="novaReserva(template)"><i class="fa fa-plus-circle"></i>&nbsp;INCLUIR</button>
+  </div>
+
+</div>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>DATA/HORA PARTIDA</th>
+        <th>ORIGEM</th>
+        <th>DESTINO</th>
+        <th>OPÇÕES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas">
+        <td>{{ reserva.id }}</td>
+        <td>{{ reserva.nome }}</td>
+        <td>{{ reserva.dataHoraPartida | DateTimeFormatPipe}}</td>
+        <td>{{ reserva.origem }}</td>
+        <td>{{ reserva.destino }}</td>
+        <td>
+            <button class="btn btn-sm btn-success" tooltip="Editar" (click)="editarReserva(reserva, template)">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="excluirReserva(reserva, confirm)">
+              <i class="fa fa-eraser"></i>
+            </button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div bsModal #template="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">NOVA RESERVA</h4>
+        <button type="button" class="close pull-right" (click)="template.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+          
+          <form [formGroup]="registerForm">
+            
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label>Nome</label>
+                <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('nome').errors && registerForm.get('nome').touched}" formControlName="nome">
+                <div *ngIf="registerForm.get('nome').hasError('required') && registerForm.get('nome').touched" class="invalid-feedback">
+                  O nome é obrigatório.
+                </div>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label>Data e Hora da Partida</label>
+                <input type="text" class="form-control" value="{{dataHoraPartida | DateTimeFormatPipe}}" [(ngModel)]="dataHoraPartida" bsDatepicker [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm' }" [ngClass]="{'is-invalid': registerForm.get('dataHoraPartida').errors && registerForm.get('dataHoraPartida').touched}" formControlName="dataHoraPartida">
+                <div class="invalid-feedback">
+                  A Data é obrigatória.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Origem</label>
+                <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('origem').errors && registerForm.get('origem').touched}" formControlName="origem">
+                <div *ngIf="registerForm.get('origem').hasError('required') && registerForm.get('nome').touched" class="invalid-feedback">
+                  A origem é obrigatória.
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Destino</label>
+                <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('destino').errors && registerForm.get('destino').touched}" formControlName="destino">
+                <div *ngIf="registerForm.get('destino').hasError('required') && registerForm.get('destino').touched" class="invalid-feedback">
+                  O destino é obrigatório.
+                </div>
+              </div>
+            </div>
+          </form>
+      </div>
+      
+      <div class="modal-footer d-flex">
+        <button class="btn btn-secondary" (click)="template.hide()">
+          Fechar
+        </button>
+        <button class="btn btn-primary ml-auto" [disabled]="!registerForm.valid" (click)="incluirReserva(template)">
+          SALVAR
+        </button>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<div bsModal #confirm="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+	<div class="modal-dialog modal-sm">
+  		<div class="modal-content">
+    		<div class="modal-header">
+      			<h4 class="modal-title pull-left">
+        			Exclusão
+      			</h4>
+      			<button type="button" class="close pull-right" (click)="confirm.hide()" aria-label="Close">
+        			<span aria-hidden="true">&times;</span>
+      			</button>
+    		</div>
+    		<div class="modal-body">
+      			<p>{{bodyDeletarReserva}}</p>
+    		</div>    
+    		<div class="modal-footer btn-group d-flex">      
+      			<button type="button" class="btn btn-outline-primary" (click)="confirm.hide()">
+        			NÃO
+      			</button>
+      			<button type="button" class="btn btn-outline-danger" (click)="confirmeDelete(confirm)">
+          		SIM
+        		</button>
+    		</div>
+  		</div>
+	</div>
+</div>
