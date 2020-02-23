@@ -11,18 +11,20 @@ Esta aplicação possui uma página única (SPA) que exibe a listagem de um cada
     <li>DBSqlite</li>
 </ul>
 
-## Instalação e Execução:
+## Instalação:
 ### API GolLabs.API
 ```sh
 GolLabs.API/dotnet run
 ```
-<p>URL API: http://localhost:5000</p>
 
 ### APP GolLas-App
 ```sh
 npm i
 GolLas-App/ng serve -o
 ```
+
+ ## Execução:
+<p>URL API: http://localhost:5000</p>
 <p>URL APP: http://localhost:4200</p>
 
 ## Nota: 
