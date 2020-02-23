@@ -28,7 +28,7 @@ GolLabs-App/ng serve -o
 <p>APP: http://localhost:4200</p>
 
 ## Nota: 
-O requisito de possuir um fluxo de login/logout não foi possível ser criado, pois encontrei problemas no uso do Identity Framework entre a versão do .NET Core do curso e a versão 3 utilizada neste projeto. Por não conseguir fazer funcionar em tempo hábil, para ser mais breve na entrega e mais acertivo no funcionamento da aplicação, achei por bem deixar esta implementação para outra ocasião, se for o caso.
+O requisito de possuir um fluxo de login/logout não foi possível ser criado, pois encontrei problemas no uso do Identity Framework entre a versão do .NET Core do curso e a versão 3 utilizada neste projeto. E para ser mais breve e acertivo no funcionamento da aplicação, achei por bem deixar esta implementação para outra ocasião, se for o caso. Fique a vontade para avaliar todos os outros aspectos do sistema.
 ## 
 Desde já agradeço a oportunidade.
 
