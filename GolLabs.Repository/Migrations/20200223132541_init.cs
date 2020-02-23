@@ -14,7 +14,8 @@ namespace GolLabs.Repository.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
-                    DataHoraPartida = table.Column<DateTime>(nullable: false),
+                    DataPartida = table.Column<DateTime>(nullable: false),
+                    HoraPartida = table.Column<string>(nullable: true),
                     Origem = table.Column<string>(nullable: true),
                     Destino = table.Column<string>(nullable: true)
                 },

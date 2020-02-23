@@ -1,7 +1,8 @@
 export interface Reserva {
     id: number;
     nome: string;
-    dataHoraPartida: Date;
+    dataPartida: Date;
+    horaPartida: string;
     origem: string;
     destino: number;
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GolLabs.Repository.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200223005538_init")]
+    [Migration("20200223132541_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,10 +24,13 @@ namespace GolLabs.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DataHoraPartida")
+                    b.Property<DateTime>("DataPartida")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Destino")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("HoraPartida")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")

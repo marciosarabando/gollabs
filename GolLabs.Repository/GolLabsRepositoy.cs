@@ -47,5 +47,14 @@ namespace GolLabs.Repository
             .Where(r => r.Id == ReservaId).OrderByDescending(r => r.Id);
             return await query.FirstOrDefaultAsync();
         }
+
+        public async Task<Reserva[]> GetAllReservaAsyncByNome(string nome)
+        {
+            IQueryable<Reserva> query = _context.Reservas
+                .AsNoTracking()
+                .OrderByDescending(r => r.Nome)
+                .Where(r => r.Nome.ToLower().Contains(nome.ToLower()));
+            return await query.ToArrayAsync();
+        }
     }
 }

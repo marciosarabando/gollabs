@@ -3,7 +3,8 @@
 <div class="d-flex">
   <div class="form-inline mr-auto" action="">
     <div class="form-group mb-2">
-      <label class="mr-2">FILTRAR:</label><input type="text" class="form-control mr-2" placeholder="por nome">
+      <label class="mr-2">BUSCAR POR:</label><input type="text" class="form-control mr-2" placeholder="Digite o Nome"
+      [(ngModel)]="filtroLista">
     </div>
   </div>
 
@@ -13,22 +14,26 @@
 
 </div>
 
+<h2>Buscar por: {{ filtroLista }}</h2>
+
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
         <th>ID</th>
         <th>NOME</th>
-        <th>DATA/HORA PARTIDA</th>
+        <th class="text: center">DATA PARTIDA</th>
+        <th>HORA PARTIDA</th>
         <th>ORIGEM</th>
         <th>DESTINO</th>
         <th>OPÇÕES</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let reserva of reservas">
+    <tr *ngFor="let reserva of reservasFiltradas">
         <td>{{ reserva.id }}</td>
         <td>{{ reserva.nome }}</td>
-        <td>{{ reserva.dataHoraPartida | DateTimeFormatPipe}}</td>
+        <td>{{ reserva.dataPartida | DateTimeFormatPipe}}</td>
+        <td>{{ reserva.horaPartida }}</td>
         <td>{{ reserva.origem }}</td>
         <td>{{ reserva.destino }}</td>
         <td>
@@ -60,7 +65,7 @@
           <form [formGroup]="registerForm">
             
             <div class="form-row">
-              <div class="form-group col-md-8">
+              <div class="form-group col-md-6">
                 <label>Nome</label>
                 <input type="text" class="form-control" [ngClass]="{'is-invalid': registerForm.get('nome').errors && registerForm.get('nome').touched}" formControlName="nome">
                 <div *ngIf="registerForm.get('nome').hasError('required') && registerForm.get('nome').touched" class="invalid-feedback">
@@ -69,12 +74,48 @@
               </div>
 
               <div class="form-group col-md-4">
-                <label>Data e Hora da Partida</label>
-                <input type="text" class="form-control" value="{{dataHoraPartida | DateTimeFormatPipe}}" [(ngModel)]="dataHoraPartida" bsDatepicker [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm' }" [ngClass]="{'is-invalid': registerForm.get('dataHoraPartida').errors && registerForm.get('dataHoraPartida').touched}" formControlName="dataHoraPartida">
+                <label>Data da Partida</label>
+                <input type="text" class="form-control" value="{{dataPartida | DateTimeFormatPipe}}" [(ngModel)]="dataPartida" bsDatepicker [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY' }" [ngClass]="{'is-invalid': registerForm.get('dataPartida').errors && registerForm.get('dataPartida').touched}" formControlName="dataPartida">
                 <div class="invalid-feedback">
                   A Data é obrigatória.
                 </div>
               </div>
+
+              <div class="form-group col-md-2">
+                <label>Hora</label>
+                
+                <select class="form-control" [ngClass]="{'is-invalid': registerForm.get('horaPartida').errors && registerForm.get('horaPartida').touched}" formControlName="horaPartida">
+                  <option>00:00</option>
+                  <option>01:00</option>
+                  <option>02:00</option>
+                  <option>03:00</option>
+                  <option>04:00</option>
+                  <option>05:00</option>
+                  <option>06:00</option>
+                  <option>07:00</option>
+                  <option>08:00</option>
+                  <option>09:00</option>
+                  <option>10:00</option>
+                  <option>11:00</option>
+                  <option>12:00</option>
+                  <option>13:00</option>
+                  <option>14:00</option>
+                  <option>15:00</option>
+                  <option>16:00</option>
+                  <option>17:00</option>
+                  <option>18:00</option>
+                  <option>19:00</option>
+                  <option>20:00</option>
+                  <option>21:00</option>
+                  <option>22:00</option>
+                  <option>23:00</option>
+                </select>
+      
+                <div *ngIf="registerForm.get('horaPartida').hasError('required') && registerForm.get('horaPartida').touched" class="invalid-feedback">
+                  A hora é obrigatória.
+                </div>
+              </div>
+
             </div>
 
             <div class="form-row">

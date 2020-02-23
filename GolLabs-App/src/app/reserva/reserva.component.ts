@@ -14,10 +14,11 @@ export class ReservaComponent implements OnInit {
 
   reservas: Reserva[];
   reserva: Reserva;
+  reservasFiltradas: Reserva[];
   registerForm: FormGroup;
   modoSalvar = 'post';
   bodyDeletarReserva = "";
-  dataHoraPartida = "";
+  dataPartida = "";
 
   constructor(
                   private reservaService: ReservaService
@@ -39,14 +40,30 @@ export class ReservaComponent implements OnInit {
     this.reservaService.getAllReservas().subscribe(
       (_reservas: Reserva[]) => {
         this.reservas = _reservas;
-        //this.eventosFiltrados = this.eventos;
+        this.reservasFiltradas = this.reservas;
     }, error => {
       console.log(error);
     });
   }
 
+  filtrarReservas(filtrarPor: string): Reserva[] {
+    filtrarPor = filtrarPor.toLocaleLowerCase();
+    return this.reservas.filter(
+      reserva => reserva.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+    );
+  }
+
+  _filtroLista: string;
+  get filtroLista(): string {
+    return this._filtroLista;
+  }
+  set filtroLista(value: string) {
+    this._filtroLista = value;
+    this.reservasFiltradas = this.filtroLista ? this.filtrarReservas(this.filtroLista) : this.reservas;
+  }
+
   novaReserva(template: any){
-    //this.modoSalvar = 'post';
+    this.modoSalvar = 'post';
     this.openModal(template);
   }
 
@@ -58,7 +75,8 @@ export class ReservaComponent implements OnInit {
   validation(){
     this.registerForm = this.fb.group({
       nome: ['', Validators.required],
-      dataHoraPartida: ['', Validators.required],
+      dataPartida: ['', Validators.required],
+      horaPartida: ['', Validators.required],
       origem: ['', Validators.required],
       destino: ['', Validators.required]
     });
