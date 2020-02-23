@@ -1,5 +1,5 @@
 # Teste Dev Full Stack Gol Labs
-## Candidato: Marcio Sarabando
+## Marcio Sarabando
 
 ### GolLabs-APP - Minhas Reservas
 
@@ -7,7 +7,6 @@
 Esta aplicação web possui uma página única que exibe a listagem de um cadastro de Reservas, exibe os campos: Nome, Data da Partida, Hora da Partida, Origem e Destino. Nela é possível Listar, Filtrar, Incluir, Editar e Remover Reservas.
 
 ### Tecnologias utilizadas:
-<<<<<<< HEAD
 <ul>
     <li>.Net Core</li>
     <li>Angular</li>
