@@ -23,9 +23,9 @@ GolLabs-App/npm i
 GolLabs-App/ng serve -o
 ```
 
- ## Execução:
-<p>URL API: http://localhost:5000</p>
-<p>URL APP: http://localhost:4200</p>
+ ## URL de Execução:
+<p>API: http://localhost:5000</p>
+<p>APP: http://localhost:4200</p>
 
 ## Nota: 
 O requisito de possuir um fluxo de login/logout não foi possível criar, pois encontrei problemas no uso do Identity Framework entre a versão do .NET Core do curso e a versão 3 utilizada neste projeto. Por não conseguir fazer funcionar em tempo hábil, para ser mais breve na entrega e mais acertivo no funcionamento da aplicação, achei por bem deixar esta implementação para outra ocasião, se for o caso.
