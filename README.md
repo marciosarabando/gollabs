@@ -13,13 +13,17 @@ Esta aplicação possui uma página única (SPA) que exibe a listagem de um cada
 
 ## Instalação e Execução:
 ### API
-<p>cmd: GolLabs.API/dotnet run</p>
-<p>url: http://localhost:5000</p>
+```sh
+GolLabs.API/dotnet run
+```
+<p>URL API: http://localhost:5000</p>
 
 ### APP
-<p>cmd: npm i</p>
-<p>cmd: Golbas-App/ng serve -o</p>
-<p>url: http://localhost:4200</p>
+```sh
+npm i
+cmd: Golbas-App/ng serve -o
+```
+<p>URL APP: http://localhost:4200</p>
 
 ## Nota: 
 O requisito de possuir um fluxo de login/logout não foi possível criar, pois encontrei problemas no uso do Identity Framework entre a versão do .NET Core do curso e a versão 3 utilizada neste projeto. Por não conseguir fazer funcionar em tempo hábil, para ser mais breve na entrega e mais acertivo no funcionamento da aplicação, achei por bem deixar esta implementação para outra ocasião, se for o caso.
