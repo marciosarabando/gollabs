@@ -32,5 +32,5 @@ O requisito de possuir um fluxo de login/logout não foi possível criar, pois e
 ## 
 Desde já agradeço a oportunidade.
 
-Obrigado,
+
 Marcio Sarabando.
